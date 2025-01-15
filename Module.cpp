@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Проверяет, является ли строка допустимым целым числом
 bool isValidNumber(const string& s) {
     if (s.empty()) return false;
     int start = 0;
@@ -15,6 +16,7 @@ bool isValidNumber(const string& s) {
     return true;
 }
 
+// Преобразует строку в число типа long long, устанавливая флаг валидности
 long long strToNum(const string& s, bool& valid) {
     long long res = 0;
     valid = isValidNumber(s);
@@ -28,6 +30,7 @@ long long strToNum(const string& s, bool& valid) {
     return neg ? -res : res;
 }
 
+// Преобразует число типа long long в строку
 string numToStr(long long n) {
     if (n == 0) return "0";
     string res;
@@ -41,6 +44,7 @@ string numToStr(long long n) {
     return res;
 }
 
+// Разделяет строку на блоки по 9 цифр для работы с большими числами
 void splitStrToBlocks(long long* blocks, const string& s, int len, int count) {
     int pos = len - 9;
     for (int i = 0; i < count; i++) {
@@ -63,6 +67,7 @@ void splitStrToBlocks(long long* blocks, const string& s, int len, int count) {
     }
 }
 
+// Выполняет поблочное умножение двух чисел с учётом переноса
 void multiplyBlocks(long long* a, long long* b, int count) {
     long long carry = 0;
     for (int i = 0; i < count; i++) {
@@ -75,6 +80,7 @@ void multiplyBlocks(long long* a, long long* b, int count) {
     }
 }
 
+// Складывает два числа, представленных в виде блоков, с учётом переноса
 void addBlocks(long long* a, long long* b, int count) {
     long long carry = 0;
     for (int i = 0; i < count; i++) {
@@ -87,6 +93,7 @@ void addBlocks(long long* a, long long* b, int count) {
     }
 }
 
+// Собирает строку из поблочного представления числа
 string buildResult(long long* blocks, int count) {
     string res;
     bool leading = true;
