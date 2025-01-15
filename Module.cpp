@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Проверяет, является ли строка допустимым целым числом
+// РџСЂРѕРІРµСЂСЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё СЃС‚СЂРѕРєР° РґРѕРїСѓСЃС‚РёРјС‹Рј С†РµР»С‹Рј С‡РёСЃР»РѕРј
 bool isValidNumber(const string& s) {
     if (s.empty()) return false;
     int start = 0;
@@ -16,7 +16,7 @@ bool isValidNumber(const string& s) {
     return true;
 }
 
-// Преобразует строку в число типа long long, устанавливая флаг валидности
+// РџСЂРµРѕР±СЂР°Р·СѓРµС‚ СЃС‚СЂРѕРєСѓ РІ С‡РёСЃР»Рѕ С‚РёРїР° long long, СѓСЃС‚Р°РЅР°РІР»РёРІР°СЏ С„Р»Р°Рі РІР°Р»РёРґРЅРѕСЃС‚Рё
 long long strToNum(const string& s, bool& valid) {
     long long res = 0;
     valid = isValidNumber(s);
@@ -30,7 +30,7 @@ long long strToNum(const string& s, bool& valid) {
     return neg ? -res : res;
 }
 
-// Преобразует число типа long long в строку
+// РџСЂРµРѕР±СЂР°Р·СѓРµС‚ С‡РёСЃР»Рѕ С‚РёРїР° long long РІ СЃС‚СЂРѕРєСѓ
 string numToStr(long long n) {
     if (n == 0) return "0";
     string res;
@@ -44,7 +44,7 @@ string numToStr(long long n) {
     return res;
 }
 
-// Разделяет строку на блоки по 9 цифр для работы с большими числами
+// Р Р°Р·РґРµР»СЏРµС‚ СЃС‚СЂРѕРєСѓ РЅР° Р±Р»РѕРєРё РїРѕ 9 С†РёС„СЂ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Р±РѕР»СЊС€РёРјРё С‡РёСЃР»Р°РјРё
 void splitStrToBlocks(long long* blocks, const string& s, int len, int count) {
     int pos = len - 9;
     for (int i = 0; i < count; i++) {
@@ -67,7 +67,7 @@ void splitStrToBlocks(long long* blocks, const string& s, int len, int count) {
     }
 }
 
-// Выполняет поблочное умножение двух чисел с учётом переноса
+// Р’С‹РїРѕР»РЅСЏРµС‚ РїРѕР±Р»РѕС‡РЅРѕРµ СѓРјРЅРѕР¶РµРЅРёРµ РґРІСѓС… С‡РёСЃРµР» СЃ СѓС‡С‘С‚РѕРј РїРµСЂРµРЅРѕСЃР°
 void multiplyBlocks(long long* a, long long* b, int count) {
     long long carry = 0;
     for (int i = 0; i < count; i++) {
@@ -80,7 +80,7 @@ void multiplyBlocks(long long* a, long long* b, int count) {
     }
 }
 
-// Складывает два числа, представленных в виде блоков, с учётом переноса
+// РЎРєР»Р°РґС‹РІР°РµС‚ РґРІР° С‡РёСЃР»Р°, РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅС‹С… РІ РІРёРґРµ Р±Р»РѕРєРѕРІ, СЃ СѓС‡С‘С‚РѕРј РїРµСЂРµРЅРѕСЃР°
 void addBlocks(long long* a, long long* b, int count) {
     long long carry = 0;
     for (int i = 0; i < count; i++) {
@@ -93,7 +93,7 @@ void addBlocks(long long* a, long long* b, int count) {
     }
 }
 
-// Собирает строку из поблочного представления числа
+// РЎРѕР±РёСЂР°РµС‚ СЃС‚СЂРѕРєСѓ РёР· РїРѕР±Р»РѕС‡РЅРѕРіРѕ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ С‡РёСЃР»Р°
 string buildResult(long long* blocks, int count) {
     string res;
     bool leading = true;
